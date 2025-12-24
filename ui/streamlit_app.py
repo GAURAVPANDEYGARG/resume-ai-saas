@@ -248,4 +248,11 @@ if analyze_clicked:
 # FOOTER
 # =========================
 st.divider()
-st.caption("Built with ❤️ using Streamlit + FastAPI + Groq/OpenAI")
+st.markdown(
+    """
+**👨‍💻 Built by:** Gaurav Kumar Pandey  
+📧 **Contact:** [gauravpandeygarg123@gmail.com](mailto:gauravpandeygarg123@gmail.com)
+
+Built with ❤️ using **Streamlit + FastAPI + Groq/OpenAI**
+"""
+)
