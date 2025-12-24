@@ -95,6 +95,20 @@ with st.sidebar:
         value="llama-3.1-8b-instant" if provider == "groq" else "gpt-4o-mini"
     )
 
+    st.subheader("🔑 Get an LLM API Key")
+
+    st.markdown(
+        """
+    **Groq (Free & Fast – Recommended)**  
+    👉 [Create Groq API Key](https://console.groq.com/keys)
+    
+    **OpenAI**  
+    👉 [Create OpenAI API Key](https://platform.openai.com/api-keys)
+    
+    ℹ️ Your LLM API key is used **only for this request** and is **never stored**.
+    """
+    )
+
     st.markdown("---")
     st.caption("🔒 Keys are never stored")
 
