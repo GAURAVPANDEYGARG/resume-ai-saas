@@ -5,7 +5,7 @@ import pdfplumber
 # =========================
 # CONFIG
 # =========================
-API_URL = "http://127.0.0.1:8000/analyze"
+API_URL = "https://resume-ai-saas.onrender.com/analyze"
 
 st.set_page_config(
     page_title="AI Resume Analyzer",
