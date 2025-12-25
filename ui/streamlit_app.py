@@ -179,7 +179,7 @@ if analyze_clicked:
                 API_URL,
                 json=payload,
                 headers=headers,
-                timeout=60
+                timeout=180
             )
 
         if response.status_code != 200:
