@@ -163,6 +163,8 @@ if analyze_clicked:
     elif not resume_text or not job_desc_input.strip():
         st.error("Resume and Job Description are required.")
     else:
+        st.info("⏳ First request may take up to 1–2 minutes due to cold start")
+
         with st.spinner("Analyzing with AI… ⏳"):
 
             payload = {
