@@ -1,59 +1,39 @@
 def build_prompt(resume: str, jd: str) -> str:
     return f"""
-You are an advanced ATS (Applicant Tracking System) resume analyzer used by recruiters.
+You are an ATS (Applicant Tracking System) analyzer.
 
 OBJECTIVE:
-Evaluate how well the resume matches the job description from an ATS perspective.
-
-SCORING RULES:
-- match_score must be an integer between 0 and 100
-- Base the score on:
-  - Skill overlap
-  - Relevant experience
-  - Tool/technology match
-  - Keyword presence
-- Do NOT inflate scores
-- Be realistic and strict like a real ATS
+Extract ATS-relevant matching signals between the resume and job description.
 
 OUTPUT RULES (CRITICAL):
 - Output ONLY valid JSON
-- Do NOT include explanations
-- Do NOT include markdown
-- Do NOT include extra text
-- Follow the schema EXACTLY
+- No explanations
+- No markdown
+- No extra text
 
-RESPONSE SCHEMA:
+RETURN THIS SCHEMA EXACTLY:
 {{
-  "match_score": 0-100,
-  "strengths": [
-    "Specific, resume-backed strengths relevant to the job"
-  ],
-  "weaknesses": [
-    "Concrete gaps compared to the job description"
-  ],
-  "improvement_suggestions": [
-    "Actionable suggestions to improve alignment with the job"
-  ],
+  "matched_skills": [],
+  "missing_skills": [],
+  "matched_tools": [],
+  "missing_tools": [],
+  "experience_match": "high | medium | low",
+  "strengths": [],
+  "weaknesses": [],
+  "improvement_suggestions": [],
   "resume_improvements": {{
-    "missing_keywords": [
-      "Exact keywords present in the job description but missing in the resume"
-    ],
-    "summary_improvements": "A concise, ATS-optimized professional summary suggestion",
-    "quantifiable_metrics": [
-      "Examples of measurable impact the candidate should add"
-    ],
-    "ats_optimization": [
-      "Specific ATS optimization tips (formatting, wording, keyword usage)"
-    ]
+    "missing_keywords": [],
+    "summary_improvements": "",
+    "quantifiable_metrics": [],
+    "ats_optimization": []
   }}
 }}
 
-ANALYSIS GUIDELINES:
-- Use ONLY information from the resume and job description
-- Do NOT hallucinate experience
-- Prefer exact keyword matches over synonyms
-- Keep items concise and concrete
-- Avoid generic advice
+RULES:
+- Use ONLY resume + job description
+- Prefer exact keyword matches
+- Do NOT infer or assume experience
+- Be strict and realistic
 
 RESUME:
 {resume}
@@ -61,5 +41,5 @@ RESUME:
 JOB DESCRIPTION:
 {jd}
 
-Return ONLY the JSON response now.
+Return ONLY JSON.
 """
