@@ -1,7 +1,8 @@
 from fastapi import FastAPI, Depends, HTTPException, Request
 from slowapi.middleware import SlowAPIMiddleware
 
-from api.utils.scoring import calculate_match_score
+from utils.scoring import calculate_match_score
+from utils.extract_json import extract_json
 from schemas import ResumeAnalyzerRequest, ResumeAnalyzerResponse
 from auth import authenticate
 from rate_limit import limiter
